@@ -3,17 +3,15 @@
 def find_pairs(sum, listofnumbers):
     left = 0
     right = len(listofnumbers) - 1
-    pairs = 0
+    pairs = []
     while(left != right):
         if(listofnumbers[left] + listofnumbers[right] > sum):
-            print('Too Big at:'  + str(left) + ' ' + str(right))
             right-=1
         elif(listofnumbers[left] + listofnumbers[right] == sum):
-            print('Found One at:' + str(left) + ' ' + str(right))
-            pairs += 1
+            temp = listofnumbers[left],listofnumbers[right]
+            pairs.append(list(temp))
             left+=1
         else:
-            print('Too Small at:'  + str(left) + ' ' + str(right))
             left+=1
     return pairs
 
